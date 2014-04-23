@@ -19,5 +19,5 @@
 ; 重复一定次数的fermat-test，只要又一次不满足就不是素数
 (define (fast-prime? n times)
   (cond ((= times 0) true)
-        ((fermat-test n) (fast-prime? n (- time 1)))
+        ((fermat-test n) (fast-prime? n (- times 1)))
         (else false)))
