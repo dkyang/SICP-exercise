@@ -1,9 +1,13 @@
 #lang planet neil/sicp
 
+; 目前解答还有错误，不太会
+
 (define (expmod base exp m)
   (cond ((= exp 0) 1)
         ((even? exp)
-         (if (？？) 0 (remainder (square (expmod base (/ exp 2) m)) ; 未通过non-trival测试返回0，否则继续计算
+         (if (= (remainder (square exp) m) 1) 
+             0 
+             (remainder (square (expmod base (/ exp 2) m)) ; 未通过non-trival测试返回0，否则继续计算
                     m)))
         (else 
          (remainder (* base (expmod base (- exp 1) m))
