@@ -6,9 +6,13 @@
       (+ (term a)
          (sum term (next a) next b))))
 
+; 理解变化量仅仅是k即可，而不需一定是f函数的参数
 (define (simpson-rule f a b n)
+  
   (define h (/ (- b a) n))
+  
   (define (add-h x) (+ x h))
+  
   (define (term x) 
     ; 定义系数，由x = (a + k * h)反推得到 k = (x - a) / h
     ; 从而得到每一项f(a + k * h)前的系数
@@ -18,6 +22,7 @@
             ((even? k) 2)
             (else 4)))
     (* (coe x) (f x)))
+  
   (* (/ h 3) (sum term a add-h b)))
 
 (define (cube b) (* b b b))
