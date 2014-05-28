@@ -1,0 +1,16 @@
+#lang planet neil/sicp
+
+(define (compose f g) 
+  (lambda (x) (f (g x))))
+
+(define (repeated f n)
+  (define (repeated-iter i comp-f)
+    (if (= i n)
+        comp-f
+        (repeated-iter (+ i 1)
+                       (compose f comp-f))))
+  (repeated-iter 1 f))
+
+(define (square x) (* x x))
+
+((repeated square 2) 5)
