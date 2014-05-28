@@ -15,3 +15,8 @@
 
 ((repeated square 2) 5)
 ((repeated (lambda (x) (+ x 1)) 5) 0)
+
+(define (multi-n y n)
+  ((repeated (lambda (x) (* x y)) n) 1))
+
+(multi-n 3 4)
