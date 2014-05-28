@@ -14,3 +14,4 @@
 (define (square x) (* x x))
 
 ((repeated square 2) 5)
+((repeated (lambda (x) (+ x 1)) 5) 0)
